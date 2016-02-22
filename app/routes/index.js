@@ -3,7 +3,7 @@
 var path = process.cwd();
 var TimeStampConverter = require(path + '/app/controllers/timestampController.server.js');
 
-module.exports = function (app, passport) {
+module.exports = function (app) {
 
 	app.get('/', function(req, res){
 		res.sendFile(path + '/public/index.html');

@@ -5,8 +5,7 @@ var moment = require('moment');
 
 function TimeStampConverter() {
 
-    this.convert = function(req, res) {
-        var time = req.params.time;
+    this._convert = function(time){
         var unix, natural;
         var isNumRegex = /^\d+$/;
         if (isNumRegex.test(time)) {
@@ -25,7 +24,12 @@ function TimeStampConverter() {
             "unix": unix,
             "natural": natural
         };
-        res.json(answer);
+        return answer;
+    }
+
+    this.convert = function(req, res) {
+        var time = req.params.time;
+        res.json(this._convert(time));
     };
 }
 
