@@ -4,6 +4,7 @@ var TimestampConverter = require('../controllers/timestampController.server.js')
 
 describe('TimestampConverter', function() {
     it('convert() should return null in both values if invalid natural date or unix time is passed in', function() {
+        console.log('trigger CI');
         var timestampConverter = new TimestampConverter();
         var expectedResult = {
             "unix": null,
